@@ -1,1 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
 @import "tailwindcss";
+
+:root {
+	--background: #f9f9f9;
+	--surface: #f9f9f9;
+	--surface-container: #ebeeef;
+	--surface-container-low: #f2f4f4;
+	--surface-container-high: #e4e9ea;
+	--surface-container-highest: #dde4e5;
+	--surface-container-lowest: #ffffff;
+	--surface-variant: #dde4e5;
+	--on-surface: #2d3435;
+	--on-surface-variant: #5a6061;
+	--on-background: #2d3435;
+	--outline: #757c7d;
+	--outline-variant: #adb3b4;
+	--primary: #515f74;
+	--primary-dim: #455367;
+	--on-primary: #f6f7ff;
+}
+
+@layer utilities {
+	.bg-background {
+		background-color: var(--background);
+	}
+
+	.bg-surface {
+		background-color: var(--surface);
+	}
+
+	.bg-surface-container {
+		background-color: var(--surface-container);
+	}
+
+	.bg-surface-container-low {
+		background-color: var(--surface-container-low);
+	}
+
+	.bg-surface-container-high {
+		background-color: var(--surface-container-high);
+	}
+
+	.bg-surface-container-highest {
+		background-color: var(--surface-container-highest);
+	}
+
+	.bg-surface-container-lowest {
+		background-color: var(--surface-container-lowest);
+	}
+
+	.bg-surface-variant {
+		background-color: var(--surface-variant);
+	}
+
+	.bg-primary {
+		background-color: var(--primary);
+	}
+
+	.bg-primary-dim {
+		background-color: var(--primary-dim);
+	}
+
+	.text-on-surface {
+		color: var(--on-surface);
+	}
+
+	.text-on-surface-variant {
+		color: var(--on-surface-variant);
+	}
+
+	.text-on-background {
+		color: var(--on-background);
+	}
+
+	.text-on-primary {
+		color: var(--on-primary);
+	}
+
+	.text-primary {
+		color: var(--primary);
+	}
+
+	.text-outline {
+		color: var(--outline);
+	}
+
+	.text-outline-variant {
+		color: var(--outline-variant);
+	}
+
+	.border-outline-variant\/20 {
+		border-color: color-mix(in srgb, var(--outline-variant) 20%, transparent);
+	}
+
+	.font-headline {
+		font-family: "Newsreader", serif;
+	}
+
+	.font-body {
+		font-family: "Manrope", sans-serif;
+	}
+
+	.font-label {
+		font-family: "Space Grotesk", monospace;
+	}
+
+	.technical-rule {
+		border: 0.5px solid color-mix(in srgb, var(--outline-variant) 20%, transparent);
+	}
+
+	.technical-axis-y {
+		width: 0.5px;
+		min-height: 100%;
+		background-color: color-mix(in srgb, var(--outline-variant) 20%, transparent);
+	}
+
+	.technical-axis-x {
+		height: 0.5px;
+		width: 100%;
+		background-color: color-mix(in srgb, var(--outline-variant) 20%, transparent);
+	}
+
+	.ambient-shadow {
+		box-shadow: 0 10px 40px -10px rgba(45, 52, 53, 0.04);
+	}
+
+	.material-symbols-outlined {
+		font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+	}
+}
