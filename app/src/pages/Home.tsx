@@ -14,24 +14,13 @@ export default function Home() {
               href="#"
             >
               <span className="material-symbols-outlined text-[18px]">analytics</span>
-              Theoretical_Models
+              Top page
             </a>
           </li>
           <li>
             <a
               className="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 w-full text-left"
-              href="#"
-            >
-              <span className="material-symbols-outlined text-[18px]">
-                precision_manufacturing
-              </span>
-              Engineering_Logs
-            </a>
-          </li>
-          <li>
-            <a
-              className="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 w-full text-left"
-              href="#"
+              href="#research"
             >
               <span className="material-symbols-outlined text-[18px]">menu_book</span>
               Publications
@@ -40,19 +29,15 @@ export default function Home() {
           <li>
             <a
               className="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 w-full text-left"
-              href="#"
+              href="#works"
             >
-              <span className="material-symbols-outlined text-[18px]">terminal</span>
-              Terminal
+              <span className="material-symbols-outlined text-[18px]">
+                precision_manufacturing
+              </span>
+              Works
             </a>
           </li>
         </ul>
-        <div className="mt-auto pt-8 border-t border-slate-200/50">
-          <div className="flex items-center gap-2 text-[10px] text-slate-500">
-            <div className="w-2 h-2 bg-primary" />
-            SYSTEM_ONLINE
-          </div>
-        </div>
       </nav>
 
       <main className="flex-1 flex flex-col min-h-screen relative w-full overflow-x-hidden">
@@ -154,7 +139,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-between mb-16 border-b border-outline-variant/20 pb-4">
               <h2 className="font-label text-xl tracking-widest uppercase">
-                Dichotomy_Analysis
+                My feature
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-0 relative">
@@ -162,7 +147,7 @@ export default function Home() {
 
               <div className="md:pr-16 flex flex-col items-start text-right md:text-left">
                 <span className="font-headline text-3xl italic text-primary mb-6">
-                  Theory
+                  Quantum information
                 </span>
                 <p className="font-body text-base text-on-surface-variant mb-8 leading-relaxed">
                   Rigorous mathematical modeling and foundational physics
@@ -171,20 +156,20 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   <span className="bg-surface-container-high px-3 py-1 font-label text-xs">
-                    QUANTUM_MECHANICS
+                    QUANTUM_CIRCUITS
                   </span>
                   <span className="bg-surface-container-high px-3 py-1 font-label text-xs">
                     STATISTICAL_PHYSICS
                   </span>
                   <span className="bg-surface-container-high px-3 py-1 font-label text-xs">
-                    TOPOLOGY
+                    ENTANGLEMENT
                   </span>
                 </div>
               </div>
 
               <div className="md:pl-16 flex flex-col items-start md:items-end text-left md:text-right">
                 <span className="font-headline text-3xl italic text-on-background mb-6">
-                  Practice
+                  Software engineering
                 </span>
                 <p className="font-body text-base text-on-surface-variant mb-8 leading-relaxed md:text-right">
                   Agile implementation of algorithms into scalable software
@@ -211,11 +196,8 @@ export default function Home() {
           <div className="absolute top-0 left-16 right-16 technical-axis-x" />
           <div className="max-w-5xl mx-auto">
             <div className="mb-12 flex gap-4 items-baseline">
-              <span className="font-label text-sm text-primary tracking-widest">
-                VOL. 01
-              </span>
               <h2 className="font-label text-xs uppercase tracking-[0.2em] text-outline">
-                Featured Publications
+                Publications
               </h2>
             </div>
 
@@ -270,14 +252,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 px-6 md:px-16 lg:px-24 bg-surface-container-highest relative">
+        <section className="py-24 px-6 md:px-16 lg:px-24 bg-surface-container-highest relative" id="works">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
               <span className="material-symbols-outlined text-primary text-3xl">
-                terminal
+                precision_manufacturing
               </span>
               <h2 className="font-label text-2xl tracking-widest uppercase">
-                Engineering_Lab
+                Works
               </h2>
               <div className="h-[0.5px] flex-1 bg-outline-variant/30 ml-8" />
             </div>
