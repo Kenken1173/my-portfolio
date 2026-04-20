@@ -1,8 +1,76 @@
+import { useState } from "react";
 import "../App.css";
+import circuitImage from "../assets/circuit.png";
 
 export default function Home() {
+  const [isOutlineOpen, setIsOutlineOpen] = useState(false);
+
   return (
     <div className="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col md:flex-row">
+      <button
+        aria-hidden={!isOutlineOpen}
+        aria-label="Close outline"
+        className={`md:hidden fixed inset-0 bg-slate-900/40 z-40 transition-opacity ${
+          isOutlineOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setIsOutlineOpen(false)}
+        type="button"
+      />
+
+      <nav
+        aria-hidden={!isOutlineOpen}
+        id="mobile-outline"
+        className={`md:hidden fixed top-0 right-0 h-screen w-64 p-6 bg-slate-50 text-slate-700 font-mono text-xs tracking-tight border-l border-slate-200 z-50 transition-transform duration-300 ${
+          isOutlineOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-4">
+          <div className="font-serif text-2xl">OUTLINE</div>
+          <button
+            aria-label="Close outline"
+            className="text-slate-600 hover:bg-slate-100 p-2"
+            onClick={() => setIsOutlineOpen(false)}
+            type="button"
+          >
+            <span className="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+        <ul className="flex flex-col gap-1 mt-8">
+          <li>
+            <a
+              className="flex items-center gap-3 px-4 py-3 bg-slate-200 text-slate-900 font-bold hover:bg-slate-100 w-full text-left"
+              href="#"
+              onClick={() => setIsOutlineOpen(false)}
+            >
+              <span className="material-symbols-outlined text-[18px]">analytics</span>
+              Top page
+            </a>
+          </li>
+          <li>
+            <a
+              className="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 w-full text-left"
+              href="#research"
+              onClick={() => setIsOutlineOpen(false)}
+            >
+              <span className="material-symbols-outlined text-[18px]">menu_book</span>
+              Publications
+            </a>
+          </li>
+          <li>
+            <a
+              className="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 w-full text-left"
+              href="#works"
+              onClick={() => setIsOutlineOpen(false)}
+            >
+              <span className="material-symbols-outlined text-[18px]">
+                precision_manufacturing
+              </span>
+              Works
+            </a>
+          </li>
+        </ul>
+      </nav>
+
       <nav className="hidden md:flex flex-col h-screen w-64 p-6 bg-slate-50 text-slate-700 font-mono text-xs tracking-tight border-r border-slate-200 sticky top-0 shrink-0 z-40">
         <div className="font-serif text-2xl border-b border-slate-200 pb-4 mb-4">
           OUTLINE
@@ -43,14 +111,18 @@ export default function Home() {
       <main className="flex-1 flex flex-col min-h-screen relative w-full overflow-x-hidden">
         <header className="md:hidden fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-slate-50/80 backdrop-blur-md border-b border-slate-200 font-serif text-slate-800 uppercase tracking-widest">
           <div className="flex items-center gap-4">
-            <button className="text-slate-600 hover:bg-slate-100 p-2 -ml-2 transition-transform hover:-translate-y-[2px]">
-              <span className="material-symbols-outlined">menu_book</span>
-            </button>
-            <span className="font-serif italic text-xl text-slate-900 font-extrabold tracking-tight">
-              KINETIC_ARCHIVE_v1.0
-            </span>
+            <a className="font-serif italic text-xl text-slate-900 font-extrabold tracking-tight" href="#">
+              Hogehoge's Homepage
+            </a>
           </div>
-          <button className="text-slate-600 hover:bg-slate-100 p-2 -mr-2 transition-transform hover:-translate-y-[2px]">
+          <button
+              aria-controls="mobile-outline"
+              aria-expanded={isOutlineOpen}
+              aria-label="Toggle outline"
+              className="text-slate-600 hover:bg-slate-100 p-2 -ml-2 transition-transform hover:-translate-y-[2px]"
+              onClick={() => setIsOutlineOpen((prev) => !prev)}
+              type="button"
+            >
             <span className="material-symbols-outlined">more_vert</span>
           </button>
         </header>
@@ -76,20 +148,6 @@ export default function Home() {
                 problems into elegant, simple code. Bridging the gap between
                 abstract mathematics and tangible infrastructure.
               </p>
-              <div className="flex flex-wrap items-center gap-6 mt-8">
-                <button className="bg-primary text-on-primary px-8 py-4 font-label text-sm uppercase tracking-widest hover:bg-primary-dim transition-all hover:-translate-y-[2px] flex items-center gap-2">
-                  Execute_Sequence
-                  <span className="material-symbols-outlined text-[16px]">
-                    arrow_forward
-                  </span>
-                </button>
-                <a
-                  className="technical-rule px-8 py-4 font-label text-sm uppercase tracking-widest text-on-surface hover:-translate-y-[2px] transition-transform"
-                  href="#research"
-                >
-                  View_Logs
-                </a>
-              </div>
             </div>
 
             <div className="md:col-start-9 md:col-span-4 relative h-[400px] w-full">
@@ -228,24 +286,12 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-
-                <div className="w-full md:w-64 h-64 shrink-0 bg-surface-container flex items-center justify-center relative overflow-hidden technical-rule">
-                  <div className="absolute inset-0 bg-slate-200/40" />
-                  <div className="w-3/4 h-3/4 border-l border-b border-on-surface relative">
-                    <svg
-                      className="absolute inset-0 w-full h-full overflow-visible stroke-primary stroke-[0.5] fill-none"
-                      viewBox="0 0 100 100"
-                    >
-                      <path d="M0,100 C30,90 40,50 50,50 C60,50 70,10 100,0" />
-                      <circle className="fill-primary" cx="50" cy="50" r="2" />
-                    </svg>
-                    <span className="absolute -bottom-6 right-0 font-label text-[8px]">
-                      Entanglement S(L/2)
-                    </span>
-                    <span className="absolute top-0 -left-12 font-label text-[8px] -rotate-90 origin-right">
-                      Measurement Rate (p)
-                    </span>
-                  </div>
+                <div className="w-full max-w-[400px] sm:max-w-[350px] md:w-[480px] md:h-[500px] md:max-w-none aspect-[4/5] md:aspect-auto shrink-0 mx-auto md:mx-0">
+                  <img
+                    src={circuitImage}
+                    alt="Publication Image"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </div>
             </article>
@@ -361,32 +407,20 @@ export default function Home() {
 
         <footer className="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-4 bg-slate-100 text-slate-600 font-mono text-[10px] uppercase tracking-tighter border-t border-slate-200 mt-auto shrink-0 relative z-10">
           <div className="font-mono font-bold text-slate-700">
-            &copy;2024 THE_KINETIC_ARCHIVE // RESEARCH_DIVISION
+            &copy;2026 ~-portfolio. All rights reserved.
           </div>
           <div className="flex gap-6">
             <a
-              className="opacity-60 hover:opacity-100 hover:text-slate-900 transition-opacity"
+              className="opacity-100 hover:opacity-100 hover:text-slate-900 transition-opacity"
               href="#"
             >
               arXiv
             </a>
             <a
-              className="opacity-60 hover:opacity-100 hover:text-slate-900 transition-opacity"
+              className="opacity-100 hover:opacity-100 hover:text-slate-900 transition-opacity"
               href="#"
             >
               GitHub
-            </a>
-            <a
-              className="opacity-60 hover:opacity-100 hover:text-slate-900 transition-opacity"
-              href="#"
-            >
-              ORCID
-            </a>
-            <a
-              className="opacity-60 hover:opacity-100 hover:text-slate-900 transition-opacity"
-              href="#"
-            >
-              LinkedIn
             </a>
           </div>
         </footer>
